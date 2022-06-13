@@ -1,0 +1,103 @@
+<div class="toolbar" role="banner">
+  <img
+    width="40"
+    alt="Angular Logo"
+    src="../assets/images/logo.png"
+  />
+  <span>Fundamental testing</span>
+    <div class="spacer"></div>
+</div>
+
+<div class="content" role="main">
+  <h2>Tasks</h2>
+  <p>Please pick up below task (Note: You have to complete all tasks.)</p>
+  <div class="card-container">
+    <div class="card card-small" (click)="selectQuestion(1, 'Create Page - Add New Student')">
+      <p>1) Create Page - Add New Student</p>
+    </div>
+    <div class="card card-small" (click)="selectQuestion(2, 'Validate Form When Submit')">
+      <p>2) Validate Form When Submit</p>
+    </div>
+    <div class="card card-small" (click)="selectQuestion(3, 'Show Dialog Confirm With Message')">
+      <p>3) Show Dialog Confirm With Message</p>
+    </div>
+    <div class="card card-small" (click)="selectQuestion(4, 'Format Date for DatetimePicker')">
+      <p>4) Format Date for DatetimePicker</p>
+    </div>
+    <div class="card card-small" (click)="selectQuestion(5, 'Save Student Information')">
+      <p>5) Save Student Information</p>
+    </div>
+    <div class="card card-small" (click)="selectQuestion(6, 'Show List Students')">
+      <p>6) Show List Students</p>
+    </div>
+  </div>
+  <div class="clearfix"></div>
+  <div class="question-content" [ngSwitch]="Question.id">
+      <div  class="question" *ngSwitchCase="1">
+        <strong>{{Question.id}}) {{Question.name}}</strong>
+        <div>
+          <p>Create new page Add new Student with UI sample</p>
+          <p>Path: /AddStudent</p>
+          <img alt="FormSample" src="../assets/images/form_student.png">
+        </div>
+      </div>
+      <div  class="question" *ngSwitchCase="2">
+        <strong>{{Question.id}}) {{Question.name}}</strong>
+        <div>
+          <ul>
+            <li>Validate Form Add new Student when click button save</li>
+          </ul>
+          <img alt="FormSample" src="../assets/images/form_student_validate.png">
+        </div>
+      </div>
+      <div  class="question" *ngSwitchCase="3">
+        <strong>{{Question.id}}) {{Question.name}}</strong>
+        <div>
+          <ul>
+            <li>Create new Component Dialog</li>
+            <li>Using module @angular/material/dialog</li>
+            <li>When click save if validate success</li>
+            <li>Show popup with content</li>
+          </ul>
+          <br/>
+          <img alt="FormSample" src="../assets/images/form_student_dialog.png">
+        </div>
+      </div>
+      <div  class="question" *ngSwitchCase="4">
+        <strong>{{Question.id}}) {{Question.name}}</strong>
+        <div>
+          <ul>
+            <li>Input Birthday use DatetimePicker Material</li>
+            <li>Using NativeDateAdapter format value DD-MM-YYYY</li>
+          </ul>
+          <br/>
+          <img alt="FormSample" src="../assets/images/form_calendar.png">
+        </div>
+      </div>
+      <div  class="question" *ngSwitchCase="5">
+        <strong>{{Question.id}}) {{Question.name}}</strong>
+        <div>
+          <ul>
+            <li>When click button Save</li>
+            <li>Add record to List (List Students)</li>
+            <li>Use LocalStorage for save List Student</li>
+          </ul>
+          <br/>
+        </div>
+      </div>
+      <div  class="question" *ngSwitchCase="6">
+        <strong>{{Question.id}}) {{Question.name}}</strong>
+        <div>
+          <ul>
+            <li>Add table List Student into Form Add New Student</li>
+            <li>Simulate the function to get data Students in services</li>
+            <li>Show Data List Students</li>
+          </ul>
+          <br/>
+        </div>
+      </div>
+  </div>
+  <footer>
+    ©Copyright by BeyondEdge 2022
+  </footer>
+</div>
