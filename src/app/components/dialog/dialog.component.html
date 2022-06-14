@@ -1,0 +1,12 @@
+<h2 mat-dialog-title>Save Student Infomation</h2>
+<mat-dialog-content>
+    <span>Name: {{data.name}}</span> <br>
+    <span>Class: {{data.classcode}}</span> <br>
+    <span>Student Code: {{data.studentcode}}</span> <br>
+    <span>Birthday: {{data.birthday | date:'dd/MM/yyyy hh:mm:a'}}</span>
+</mat-dialog-content>
+<mat-dialog-content>Are you sure you want to create new student information?</mat-dialog-content>
+<mat-dialog-actions>
+    <button class="btn btn-primary mr-2 btn-sm col-3" mat-dialog-close="true">Yes</button>
+    <button class="btn btn-light btn-sm col-3" mat-dialog-close="false">No</button>
+</mat-dialog-actions>

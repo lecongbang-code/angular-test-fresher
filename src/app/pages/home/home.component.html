@@ -30,7 +30,12 @@
     <div class="card card-small" (click)="selectQuestion(6, 'Show List Students')">
       <p>6) Show List Students</p>
     </div>
+    <h2>Result</h2>
+    <div class="card card-small" routerLink="/AddStudent">
+      <p>Add New Student</p>
+    </div>
   </div>
+  
   <div class="clearfix"></div>
   <div class="question-content" [ngSwitch]="Question.id">
       <div  class="question" *ngSwitchCase="1">

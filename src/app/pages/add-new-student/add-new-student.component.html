@@ -1,0 +1,84 @@
+<div class="container mt-5">
+  <h6> <a routerLink="/">Home</a> </h6>
+  <h4>Student infomation</h4>
+  <form [formGroup]="addNewStudentForm" (submit)="submitAddNewStudent()">
+    <div class="form-row">
+      <div class="col-md-6 mb-2">
+        <label for="">Full Name<span class="red">*</span></label>
+        <input type="text" class="form-control" formControlName="name" placeholder="Full Name" required>
+        <div *ngIf="f.name.invalid && (f.name.dirty || f.name.touched)">
+          <div *ngIf="f.name.errors">
+            <div *ngIf="f.name.errors.required" class="red">Full Name must not be empty</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 mb-2">
+        <label for="validationServer01">Class<span class="red">*</span></label>
+        <div class="form-group">
+          <select class="custom-select" formControlName="classcode" required>
+            <option value="">Select Class</option>
+            <option *ngFor="let class of listClass" value="{{class}}">{{class}}</option>
+          </select>
+          <div *ngIf="f.classcode.invalid && (f.classcode.dirty || f.classcode.touched)">
+            <div *ngIf="f.classcode.errors">
+              <div *ngIf="f.classcode.errors.required" class="red">Class must not be empty</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 mb-2">
+        <label for="">Student Code<span class="red">*</span></label>
+        <input type="text" class="form-control" formControlName="studentcode" placeholder="Student Code" required>
+        <div *ngIf="f.studentcode.invalid && (f.studentcode.dirty || f.studentcode.touched)">
+          <div *ngIf="f.studentcode.errors">
+            <div *ngIf="f.studentcode.errors.required" class="red">Student Code must not be empty</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 mb-2">
+        <label for="validationServer01">BirthDay</label>
+        <ejs-datetimepicker
+        class="form-control"
+        placeholder="Choose a date and time"
+        formControlName="birthday"
+        [min]="minDate"
+        [max]="maxDate"
+        format="dd/MM/yyyy hh:mm:a">
+        </ejs-datetimepicker>
+      </div>
+    </div>
+    <div class="mt-3">
+      <button class="btn btn-primary mr-2 btn-sm" [disabled]="!addNewStudentForm.valid" type="submit">+ Save</button>
+      <button class="btn btn-secondary btn-sm" type="reset">x Cancel</button>
+    </div>
+  </form>
+
+  <div *ngIf="listStudent" class="container mt-5">
+    <h4>Lish Student</h4>
+    <div class="row">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Full Name</th>
+            <th scope="col">Class</th>
+            <th scope="col">Student Code</th>
+            <th scope="col">Birthday</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let student of listStudent ;let i = index">
+            <th scope="row">{{i+1}}</th>
+            <td>{{student.name}}</td>
+            <td>{{student.classcode}}</td>
+            <td>{{student.studentcode}}</td>
+            <td>{{student.birthday | date:'dd/MM/yyyy hh:mm:a'}} <span *ngIf="student.birthday == null">Not updated</span></td>
+          </tr>
+          <tr>
+            <td *ngIf="listStudent.length <= 0" colspan="5">No students</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

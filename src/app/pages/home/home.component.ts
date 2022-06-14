@@ -8,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   Question:any;
+  
   constructor() {}
 
   ngOnInit(): void {
+    this.selectQuestion(0, '')
   }
+  
   selectQuestion(i:number, name:string) {
     this.Question = {
       id:i,
